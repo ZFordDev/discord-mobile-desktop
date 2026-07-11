@@ -46,11 +46,6 @@
       "category": "Tool",
       "maintainer": "ZFordDev <zforddev@gmail.com>",
       "target": ["AppImage", "deb"]
-    },
-
-    "mac": {
-      "category": "public.app-category.tools",
-      "target": ["dmg", "zip"]
     }
   }
 }
