@@ -1,0 +1,53 @@
+{
+  "name": "discord-mobile-desktop",
+  "version": "0.0.1",
+  "description": "A lightweight, phone-sized Electron wrapper for Discord.",
+    "synopsis": "A lightweight, phone-sized Electron wrapper for Discord.",
+    "homepage": "https://github.com/ZFordDev/discord-mobile-desktop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZFordDev/discord-mobile-desktop.git"
+  },
+  "author": "ZFordDev",
+  "license": "MIT",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "prestart": "npm update",
+    "start": "electron .",
+    "build": "electron-builder",
+    "clear": "rm -rf dist node_modules package-lock.json"
+  },
+  "keywords": [
+    "discord",
+    "electron",
+    "minimalist",
+    "mobile-ui"
+  ],
+  "devDependencies": {
+    "electron": "^43.1.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.zforddev.discord-mobile-desktop",
+    "productName": "discord-mobile-desktop",
+    "artifactName": "DiscordMobileDesktop-${version}-${channel}-${os}-${arch}.${ext}",
+    "asar": true,
+    "executableName": "discord-mobile-desktop",
+    "compression": "maximum",
+    "win": {
+      "target": ["nsis"]
+    },
+
+    "linux": {
+      "category": "Tool",
+      "maintainer": "ZFordDev <zforddev@gmail.com>",
+      "target": ["AppImage", "deb"]
+    },
+
+    "mac": {
+      "category": "public.app-category.tools",
+      "target": ["dmg", "zip"]
+    }
+  }
+}
