@@ -35,6 +35,9 @@
     "asar": true,
     "executableName": "discord-mobile-desktop",
     "compression": "maximum",
+    "publish": {
+      "tag": "${version}"
+    },
     "win": {
       "target": ["nsis"]
     },
