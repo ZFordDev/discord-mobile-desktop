@@ -10,20 +10,20 @@ _A lightweight, phone-sized Electron wrapper for Discord._
 
 I’ve always loved the simplicity of old-school MSN Messenger. Discord is where everyone is now, but the full desktop UI can feel overwhelming when you just want to send a quick message. This wrapper renders Discord in a phone-sized window  nothing modified, nothing injected, just a clean minimal shell.
 
-The wrapper includes an auto‑updater (enabled by default) purely to keep Electron fresh and avoid edge‑case issues. I don’t plan to extend this project beyond this point. Keep an eye out for my own messaging service later  lightweight, offline‑first, visually clean, and as free as possible (servers cost money once you go full‑time).
+The wrapper includes a lightweight update checker that notifies users when a newer GitHub release is available. It does not modify Discord or inject code into the Discord web app. Keep an eye out for my own messaging service later: lightweight, offline-first, visually clean, and as free as possible.
 
 ## Requirements
 Discord is heavy. Electron is heavy. This wrapper keeps things as lean as possible.
 
-### ram
+### RAM
 - Electron (WebView2) baseline: 110–130 MB
 - Discord in browser: ~100 MB
 - Combined runtime: 250–350 MB
 This is lighter than the official desktop app.
-### storage
+### Storage
 
 The installer is just under 90 MB.
-Tauri could reduce installer size, but RAM usage would remain similar because both rely on WebView2. Anything under 100 MB is acceptable; if it climbs above that, I may switch.
+The project uses Electron because Chromium compatibility is important for Discord voice, camera, microphone, uploads, notifications, and screen sharing.
 
 ### CPU
 
@@ -35,9 +35,10 @@ If your machine can run Discord in a browser, it can run this wrapper.
 - Other Linux distros can use the Ubuntu-tested AppImage
 - macOS builds are not provided (no hardware available for testing)
 
-### overview 
-You won’t get a cleaner Discord wrapper without modifying Discord’s code  and that’s not something I’m interested in doing.
-Wait for my messaging app; I’ll keep it low, clean, and offline‑first.
+### Overview
+This project is intentionally a single-account Discord wrapper. It focuses on a small, phone-sized window and useful host integrations while leaving Discord's web app unchanged.
+
+Multi-account tabs are out of scope for this project. That feature belongs in the planned standalone messaging app rather than becoming additional complexity in the Discord wrapper.
 
 > **Note for Linux users:**  
 > AppImage builds require FUSE.
@@ -53,15 +54,14 @@ git clone https://github.com/ZFordDev/discord-mobile-desktop.git
 cd discord-mobile-desktop
 
 npm install
-npm run prestart
 npm run build
 npm start
-npm run clear
 
 ```
 
 ### Windows
-- `npm install | npm run build`  
+- `npm install`
+- `npm run build`
 - If npm is missing, install Node.js from [https://nodejs.org](https://nodejs.org)
 
 ### Linux
@@ -85,7 +85,6 @@ discord-mobile-desktop/
     ├── README.md # This document
     ├── main.js # the logic of the wrapper 
     ├── package.json # meta for the app
-    └── temp_notes.md # ZFordDev standard
 ```
 
 ## Support
@@ -116,7 +115,7 @@ Some Linux distros may experience minor rendering or window‑manager quirks due
 Some modern distros no longer ship FUSE by default.
 Install via your package manager (e.g., sudo apt install libfuse2).
 
-Electron is updated regularly, and alternative runtimes are being evaluated for long‑term Linux stability.
+Electron and Chromium compatibility remain important dependencies for this wrapper.
 
 ## Disclaimer
 This is an independent, open-source project.
