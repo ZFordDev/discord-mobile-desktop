@@ -1,6 +1,6 @@
 {
   "name": "discord-mobile-desktop",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight, phone-sized Electron wrapper for Discord.",
     "synopsis": "A lightweight, phone-sized Electron wrapper for Discord.",
     "homepage": "https://github.com/ZFordDev/discord-mobile-desktop",
@@ -13,7 +13,7 @@
   "private": true,
   "main": "main.js",
   "scripts": {
-    "prestart": "npm update",
+    "prestart": "npm install",
     "start": "electron .",
     "build": "electron-builder",
     "clear": "rm -rf dist node_modules package-lock.json"
@@ -35,9 +35,13 @@
     "asar": true,
     "executableName": "discord-mobile-desktop",
     "compression": "maximum",
-    "publish": {
-      "tag": "${version}"
-    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "ZFordDev",
+        "repo": "discord-mobile-desktop"
+      }
+    ],
     "win": {
       "target": ["nsis"]
     },

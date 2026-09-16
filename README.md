@@ -95,6 +95,18 @@ Feature requests are fine, but this is intentionally minimal.
 
 ## Known Issues
 
+### Host integrations
+
+The wrapper now handles the desktop concerns around the unchanged Discord web app:
+
+- Camera, microphone, fullscreen, clipboard, and web notification permissions are limited to Discord origins.
+- Screen sharing presents a source-selection dialog instead of granting a screen automatically.
+- Discord downloads use the system Downloads folder and completed files are revealed by the operating system.
+- External links open in the default browser, while Discord navigation stays inside the wrapper.
+- A second launch focuses the existing window, and a crashed renderer reloads Discord.
+
+Screen-share system audio is supported through Electron's Windows loopback capture. Linux and macOS may provide video without system audio depending on their desktop and Electron support.
+
 upstream limitation are worth noting:
 
 ### Electron on Linux (Wayland/X11 Variability)
